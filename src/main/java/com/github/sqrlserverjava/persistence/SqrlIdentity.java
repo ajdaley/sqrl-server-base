@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
@@ -58,7 +59,7 @@ public class SqrlIdentity implements Serializable {
 	@CollectionTable(name = "sqrl_identity_flag", joinColumns = @JoinColumn(name = "id", referencedColumnName = "id"))
 	@Enumerated(EnumType.STRING)
 	@Column(name = "name")
-	private final HashSet<SqrlIdentityFlag> enabledFlagList = new HashSet<SqrlIdentityFlag>();
+	private final Set<SqrlIdentityFlag> enabledFlagList = new HashSet<SqrlIdentityFlag>();
 
 	public SqrlIdentity() {
 		// Required by JPA
@@ -96,7 +97,7 @@ public class SqrlIdentity implements Serializable {
 		return identityDataTable;
 	}
 
-	public HashSet<SqrlIdentityFlag> getEnabledFlagList() {
+	public Set<SqrlIdentityFlag> getEnabledFlagList() {
 		return enabledFlagList;
 	}
 
